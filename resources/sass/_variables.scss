@@ -1,22 +1,34 @@
 // Body
-$body-bg: #ECD715;
+//$body-bg: #ECD715;
 
 // Typography
 $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 1.5rem;
 $line-height-base: 1.6;
 
+
+$container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1140px
+) !default;
+//$custom-container-width {
+//
+//  max-width: 80%;
+//}
 //background
 $brand-warning: #ECD715;!default  //#f0ad4e !default
 
 // Colors
-$blue: #3490dc;
+$blue: #1C456A;
 $indigo: #6574cd;
 $purple: #9561e2;
 $pink: #f66d9b;
 $red: #e3342f;
 $orange: #f6993f;
 $yellow: #ffed4a;
-$green: #38c172;
+$green: #27822A;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+
