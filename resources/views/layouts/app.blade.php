@@ -11,7 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script src="https://kit.fontawesome.com/187700dfeb.js" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -113,8 +113,8 @@
               {{--</div>--}}
           {{--</nav>--}}
       </header>
-      <div  class="container">
+      <div  class="container" style="overflow: auto;">
               @yield('content')
-          </div>
+      </div>
 </body>
 </html>
