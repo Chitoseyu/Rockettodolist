@@ -21,3 +21,13 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', function () {
     return view('home');
 });
+
+Route::get('/todo','todolistsController@todo')->name('todo');
+
+Route::post('/newtodo','todolistsController@newtodo')->name('newtodo');
+
+Route::get('/edit/{id}','todolistsController@edit');
+
+Route::put('/edit/edit/{id}','todolistsController@store');
+
+Route::get('delete/{id}', 'todolistsController@delete');
