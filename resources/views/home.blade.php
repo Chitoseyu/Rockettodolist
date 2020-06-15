@@ -5,7 +5,7 @@
             <div class="col-10">
                 <h1 class=".text-dark ">Welcome to U memo</h1>
             </div>
-            {{--@guest--}}
+            @guest
             <div class="col-2 btn-group">
                 <a class="btn  btn-sm" href="{{ route('register') }}">
                     <h3 class="text-white">register</h3>
@@ -14,11 +14,14 @@
                     <p class="text-dark">Login</p>
                 </a>
             </div>
-            {{--@else--}}
-                {{--<div class="col-2 btn-group">--}}
-                    {{--<a class="btn  btn-sm" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout').submit();"><p class="text-dark">logout</p></a>--}}
-                {{--</div>--}}
-            {{--@endguest--}}
+            @else
+                <div class="col-2 btn-group">
+                    <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><p class="text-dark">logout</p></a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </div>
+            @endguest
         </div>
     </div>
 @endsection
