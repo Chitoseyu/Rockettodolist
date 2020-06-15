@@ -7,12 +7,10 @@
             </div>
             {{--@guest--}}
             <div class="col-2 btn-group">
-                <a class="btn  btn-sm" href="{{ route('register') }}">
-                    <h3 class="text-white">register</h3>
-                </a>
-                <a class="btn  btn-sm" href="{{ route('login') }}">
-                    <p class="text-dark">Login</p>
-                </a>
+                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><p class="text-dark">logout</p></a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </div>
             {{--@else--}}
             {{--<div class="col-2 btn-group">--}}
@@ -26,12 +24,7 @@
 
 @section('content')
     <style>
-        .hidden {
-            display: none;
-        }
-        .oblong {border: 1px; border-radius: 30px 30px 30px 30px;}
 
-        .btn-outline-primary{color:#3490dc;background-color:white;background-image:none;border-color:#3490dc;}
     </style>
         <form method="post" action='/newtodo' >
             {{ csrf_field() }}

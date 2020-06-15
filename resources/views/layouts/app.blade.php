@@ -51,6 +51,7 @@
             padding: 0;
             margin: 0;
         }
+
         .container
         {
             background: #ECD715;
@@ -62,6 +63,16 @@
             padding: 2px;
             margin: 0;
         }
+        hidden
+        {
+            display: none;
+        }
+        oblong
+        {
+            border: 1px; border-radius: 30px 30px 30px 30px;
+        }
+
+        .btn-outline-primary{color:#3490dc;background-color:white;background-image:none;border-color:#3490dc;}
     </style>
 </head>
 <body>
