@@ -31,7 +31,7 @@
         }
         .oblong {border: 1px; border-radius: 30px 30px 30px 30px;}
 
-        .btn-outline-primary{color:#3490dc;background-color:white;background-image:none;border-color:#3490dc;}
+        .btn-outline-primary {color:#3490dc;background-color:white;background-image:none;border-color:#3490dc;}
     </style>
         <form method="post" action='/newtodo' >
             {{ csrf_field() }}
@@ -47,15 +47,27 @@
             <a href="#" onclick="link('a')">Finish</a>
         </div>
     <ul  id="a" >
-            @foreach($todo as $todo)
-                @if($todo->finish=='0')
-                <li onclick="finish()" id="a" style="border:1px solid;border-radius: 30px 30px 30px 30px; list-style-type:none;" class="btn-outline-primary mb-2"; >
-                    <font class="ml-2" color="black">{{$todo->todoth}}</font>
-                    <a style="float: right; color:black;" href="/delete/{{$todo->id}}"><i class="fas fa-trash-alt ml-1"></i></a>
-                    <a style="float: right; color: black;" href="/edit/{{$todo->id}}"><i class="fas fa-edit ml-1"></i></a>
+            @foreach($todo as $todoItem)
+                @if($todoItem->finish=='0')
+                <li onclick="fini({{$todoItem->id}})" style="border:1px solid;border-radius: 30px 30px 30px 30px; list-style-type:none;" class="btn-outline-primary mb-2"; >
+                    <font class="ml-2" color="black">{{$todoItem->todoth}}</font>
+                    <a style="float: right; color:black;" href="/delete/{{$todoItem->id}}"><i class="fas fa-trash-alt ml-1"></i></a>
+                    <a style="float: right; color: black;" href="/edit/{{$todoItem->id}}"><i class="fas fa-edit ml-1"></i></a>
                 </li>
                 @endif
             @endforeach
+    </ul>
+
+    <ul  id="b" class="hidden">
+        @foreach($todo as $todoItem)
+            @if($todoItem->finish=='1')
+                <li style="border:1px solid;border-radius: 30px 30px 30px 30px; list-style-type:none;" class="btn-outline-primary mb-2"; >
+                    <font class="ml- 2" color="black">{{$todoItem->todoth}}</font>
+                    <a style="float: right; color:black;" href="/delete/{{$todoItem->id}}"><i class="fas fa-trash-alt ml-1"></i></a>
+                    <a style="float: right; color: black;" href="/edit/{{$todoItem->id}}"><i class="fas fa-edit ml-1"></i></a>
+                </li>
+            @endif
+        @endforeach
     </ul>
 
     <script>
@@ -68,6 +80,27 @@
             //
             dom.classList.toggle('hidden');
             show.classList.toggle('hidden');
+        }
+
+        function fini(id) {
+            $.ajax({
+
+                type:'post',
+                url:'/finish',
+                data:{
+                    id:id
+                },
+
+                success: function (res) {
+                    if(res==0){
+
+                    }
+
+                }
+
+
+            })
+
         }
 
     </script>

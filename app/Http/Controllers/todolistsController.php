@@ -58,4 +58,18 @@ class todolistsController extends Controller
         $todo = todolist::all();
         return view('todo',compact('todo'));
     }
+
+    public function finish(Request $request){
+
+
+        $todo = todolist::find($request->input('id'));
+
+
+        if(($todo->finish)=='0'){
+
+            $todo->finish = '1';
+            $todo->save();
+            return 0;
+        }
+    }
 }

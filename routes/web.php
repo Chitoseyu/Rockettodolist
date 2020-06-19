@@ -31,3 +31,6 @@ Route::get('/edit/{id}','todolistsController@edit');
 Route::put('/edit/edit/{id}','todolistsController@store');
 
 Route::get('delete/{id}', 'todolistsController@delete');
+
+Route::post('/finish','todolistsController@finish');
+
